@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>A Proposal for Darshani ❤️</title>
+  <meta name="description" content="A personal, romantic letter and proposal created with all my heart.">
+
+  <!-- Web fonts with elegant serif & sans-serif fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- =====================================================================
+       🌹 PERSONALIZATION INSTRUCTIONS FOR BEGINNERS 🌹
+       
+       Follow these simple steps to customize this website for your loved one:
+       
+       1. HER NAME:
+          - Look for "Darshani" throughout this file and replace it with her name.
+          - Or edit the HER_NAME value inside the CONFIG object at the top of script.js.
+          
+       2. YOUR NAME:
+          - Look for "Sandeepa" in the final signature and replace it with your name.
+          - Or edit the YOUR_NAME value in script.js.
+          
+       3. PERSONAL MESSAGE (OPTIONAL):
+          - Edit the text inside the <div class="personal-note"> section below,
+            or leave it blank if you only want the primary romantic text.
+            
+       4. PHOTO MEMORIES (OPTIONAL):
+          - Create an "images" folder next to index.html.
+          - Save your photos as "photo1.jpg", "photo2.jpg", and "photo3.jpg".
+          - If you don't add photos, the website will hide this section automatically!
+          
+       5. BACKGROUND MUSIC (OPTIONAL):
+          - Create a "music" folder next to index.html.
+          - Place your romantic audio file inside and name it "romantic.mp3".
+          - If no music is added, the music button displays a friendly notice.
+       ===================================================================== -->
+
+  <!-- Ambient background elements -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Luminous Butterfly Swarm & Ambient Particles Canvas from 'Butterflies love web page' -->
+  <canvas id="butterflyCanvas" class="butterfly-canvas" aria-hidden="true"></canvas>
+
+  <!-- Music audio player & floating toggle widget -->
+  <aside class="music-widget" aria-label="Audio controls">
+    <audio id="bgMusic" src="music/romantic.mp3" preload="auto" loop></audio>
+    <button id="musicToggleBtn" class="music-btn" aria-label="Play background romantic music"
+      title="Play romantic music">
+      <span class="music-icon" aria-hidden="true">🎵</span>
+      <span class="music-label">Play Music</span>
+    </button>
+    <div id="musicToast" class="music-toast" role="status" aria-live="polite"></div>
+  </aside>
+
+  <!-- SCREEN 1: Romantic Opening Screen -->
+  <section id="openingScreen" class="screen opening-screen active" aria-labelledby="openingGreeting">
+    <div class="glass-card opening-card">
+      <div class="envelope-seal" aria-hidden="true">
+        <span class="seal-icon">💌</span>
+      </div>
+
+      <p id="openingGreeting" class="greeting-badge">For someone incredibly special ❤️</p>
+
+      <div class="typewriter-box">
+        <p id="typewriterText" class="typewriter-text" aria-live="polite"></p>
+        <span class="typewriter-cursor" aria-hidden="true"></span>
+      </div>
+
+      <div class="opening-action">
+        <button id="openBtn" class="btn btn-primary pulse-btn" aria-label="Open my heart to read the letter">
+          <span>Open my heart ❤️</span>
+        </button>
+      </div>
+
+      <p class="opening-subtext">Click above to open this personal letter</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: Main Romantic Proposal Experience -->
+  <main id="mainExperience" class="screen main-screen hidden" aria-hidden="true">
+    <div class="container main-content-wrapper">
+
+      <!-- Top header with her name -->
+      <header class="letter-header">
+        <span class="flourish" aria-hidden="true">❧</span>
+        <h1 class="for-her-title">For you, <span class="her-name-text">Sophia</span> ❤️</h1>
+        <p class="letter-subhead">A few words I've held deep in my heart</p>
+        <span class="flourish" aria-hidden="true">❧</span>
+      </header>
+
+      <!-- Step-by-step romantic letter chapters -->
+      <section class="letter-story" id="letterStory" aria-label="Romantic message chapters">
+
+        <!-- Chapter 1 -->
+        <article class="letter-card visible" data-step="1">
+          <div class="chapter-badge">Chapter I</div>
+          <p class="letter-text lead-text">
+            <span class="her-name-text">Sophia</span>, I've been wanting to tell you something for a long time. 🥺❤️
+          </p>
+        </article>
+
+        <!-- Chapter 2 -->
+        <article class="letter-card hidden-step" data-step="2">
+          <div class="chapter-badge">Chapter II</div>
+          <p class="letter-text">
+            You have become such a special part of my life, and somehow, even the smallest moments with you mean so much
+            to me.
+          </p>
+        </article>
+
+        <!-- Chapter 3 -->
+        <article class="letter-card hidden-step" data-step="3">
+          <div class="chapter-badge">Chapter III</div>
+          <p class="letter-text">
+            Your smile makes my day better, talking to you makes me happy, and having you in my life is something I
+            truly cherish.
+          </p>
+        </article>
+
+        <!-- Chapter 4 -->
+        <article class="letter-card hidden-step" data-step="4">
+          <div class="chapter-badge">Chapter IV</div>
+          <p class="letter-text">
+            I don't know what the future holds for us, but I know that I'd love to discover it with you.
+          </p>
+        </article>
+
+        <!-- Optional Personal Message Card -->
+        <article class="letter-card hidden-step optional-card" id="personalCard" data-step="5">
+          <div class="chapter-badge">From My Heart</div>
+          <div class="personal-note">
+            <!-- EDIT YOUR PERSONAL MESSAGE HERE -->
+            <p class="letter-text personal-text">
+              Every day with you is a gift I never take for granted. You are my warmth, my peace, and my absolute
+              favorite dream come true.
+            </p>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Step progression button -->
+      <div class="step-controls" id="stepControls">
+        <button id="continueBtn" class="btn btn-secondary continue-btn"
+          aria-label="Continue reading next part of letter">
+          <span>Continue ❤️</span>
+        </button>
+      </div>
+
+      <!-- Optional Photo Memories Section (Gracefully hides if images are missing) -->
+      <section id="photoGallery" class="photo-memories-section hidden-step" aria-label="Photo memories">
+        <div class="section-divider" aria-hidden="true">
+          <span class="star-icon">✦</span>
+          <span class="divider-line"></span>
+          <span class="heart-icon">❦</span>
+          <span class="divider-line"></span>
+          <span class="star-icon">✦</span>
+        </div>
+
+        <h2 class="section-title">Memories With You</h2>
+        <p class="section-subtitle">Moments that made me realize you're the one</p>
+
+        <div class="photo-grid" id="photoGrid">
+          <figure class="photo-card" id="card1">
+            <div class="photo-frame">
+              <img src="images/photo1.jpg" alt="A special memory with you" class="memory-img" loading="lazy">
+            </div>
+            <figcaption class="photo-caption">The sweetest smile that brightens my entire world</figcaption>
+          </figure>
+
+          <figure class="photo-card" id="card2">
+            <div class="photo-frame">
+              <img src="images/photo2.jpg" alt="A cherished adventure together" class="memory-img" loading="lazy">
+            </div>
+            <figcaption class="photo-caption">Every little journey is unforgettable when I'm with you</figcaption>
+          </figure>
+
+          <figure class="photo-card" id="card3">
+            <div class="photo-frame">
+              <img src="images/photo3.jpg" alt="A warm moment in time" class="memory-img" loading="lazy">
+            </div>
+            <figcaption class="photo-caption">My favorite place in the whole universe is right beside you</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Proposal Climax Section -->
+      <section id="proposalSection" class="proposal-section hidden-step" aria-label="The big proposal question">
+        <div class="section-divider" aria-hidden="true">
+          <span class="gold-ring">💍</span>
+        </div>
+
+        <p class="proposal-prelude">One last thing, from my heart…</p>
+        <p class="proposal-sub-prelude">So, I want to ask you something from my heart…</p>
+
+        <h2 class="proposal-question">Will you be mine? ❤️🌹</h2>
+
+        <!-- Interactive Question Buttons Area -->
+        <div class="proposal-buttons-area" id="buttonsContainer">
+          <button id="yesBtn" class="btn btn-yes" aria-label="Yes, I will be yours!">
+            <span class="btn-sparkle" aria-hidden="true">✨</span>
+            <span class="btn-text">Yes ❤️</span>
+            <span class="btn-sparkle" aria-hidden="true">✨</span>
+          </button>
+
+          <div class="no-button-wrapper" id="noBtnBoundary">
+            <button id="noBtn" class="btn btn-no" aria-label="No">
+              <span class="btn-text" id="noBtnText">No 🙈</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="playful-tip" id="playfulTip" aria-live="polite"></p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Celebration Modal Overlay (Shown when Yes is clicked) -->
+  <div id="celebrationOverlay" class="celebration-overlay" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="celebrationHeading">
+    <div class="celebration-backdrop"></div>
+    <div class="glass-card celebration-card">
+      <div class="celebration-icon" aria-hidden="true">💖🌹💍✨</div>
+
+      <h2 id="celebrationHeading" class="celebration-title">YOU JUST MADE MY HEART THE HAPPIEST. ❤️🥹</h2>
+
+      <p class="celebration-text">
+        I don't know what the future holds for us, but I hope this is the beginning of something beautiful. Thank you
+        for being you. ❤️
+      </p>
+
+      <div class="celebration-divider" aria-hidden="true">
+        <span class="sparkle-symbol">✦</span>
+        <span class="gold-rule"></span>
+        <span class="sparkle-symbol">✦</span>
+      </div>
+
+      <!-- Final Personalized Signature -->
+      <p class="celebration-signature">
+        With all my heart,<br>
+        <span class="signature-name"><span class="your-name-text">Sandeepa</span> ❤️</span>
+      </p>
+
+      <div class="celebration-buttons">
+        <button id="replayBtn" class="btn btn-primary replay-btn" aria-label="Replay celebration burst">
+          <span>Replay celebration ❤️</span>
+        </button>
+        <button id="closeCelebrationBtn" class="btn btn-secondary close-btn" aria-label="Close celebration window">
+          <span>Cherish this moment 🕊️</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Celebration Confetti & Particle Canvas -->
+  <canvas id="celebrationCanvas" class="celebration-canvas" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
